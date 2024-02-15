@@ -1,16 +1,26 @@
 using System;
 using MagicDestroyers.Equipment.Armors.Heavy;
 using MagicDestroyers.Equipment.Weapons.Blunt;
+using MagicDestroyers.Enums;
 
 namespace MagicDestroyers.Characters.Melee
 {
     public class Knight
     {
+        private const string DEFAULT_NAME = "Smith";
+        private const int DEFAULT_LEVEL = 1;
+        private const int DEFAULT_HEALTH_POINTS = 100;
+        private const int DEFAULT_ABILITY_POINTS = 110;
+        private const Faction DEFAULT_FACTION = Faction.Melee;
+
+        private readonly Chainlink DEFAULT_BODY_ARMOR = new Chainlink();
+        private readonly Hammer DEFAULT_WEAPON = new Hammer();
+
         private int abilityPoints;
         private int healthPoints;
         private int level;
 
-        private string factions;
+        private Faction faction;
         private string name;
 
         private Chainlink bodyArmor;
@@ -67,21 +77,14 @@ namespace MagicDestroyers.Characters.Melee
             }
         }
 
-         public string Factions {
+         public string Faction {
             get {
-                return this.factions;
+                return this.faction;
             }
-            set {
-                if (value === 'Melee' || value === 'Spellcaster') 
+            set 
                 {
                     this.faction = value;
                 }
-                else 
-                {
-                    System.Console.WriteLine("Faction must be Warrior or Spellcaster");
-                    throw new ArgumentOutOfRangeException(string.Empty, "Faction must be Warrior or Spellcaster");
-                }
-            }
         }
 
          public string Name {
@@ -116,40 +119,17 @@ namespace MagicDestroyers.Characters.Melee
             }
             set {
                 this.weapon = value;
-                // if (value >= 1) 
-                // {
-                //     weapon = value;
-                // }
-                // else 
-                // {
-                //     System.Console.WriteLine("Weapon must be one or greater.");
-                //      throw new ArgumentOutOfRangeException(string.Empty, "Weapon must be one or greater.");
-                // }
             }
         }
 
         public Knight()
-            : this("Smith", 1)
+            : this(DEFAULT_NAME, DEFAULT_LEVEL)
         {
-            // this.Name = "Smith";
-            // this .Level = 1;
-            // this.HealthPoints = 75;
-            // this.AbilityPoints = 120;
-            // this.Faction = "Melee";
-            // this.BodyArmor = new Chainlink();
-            // this.Weapon = new Hammer();
         }
 
          public Knight(string name, int level)
-            : this(name, level, 75)
+            : this(name, level, DEFAULT_HEALTH_POINTS)
         {
-            // this.Name = name;
-            // this .Level = level;
-            // this.HealthPoints = 75;
-            // this.AbilityPoints = 120;
-            // this.Faction = "Melee";
-            // this.BodyArmor = new Chainlink();
-            // this.Weapon = new Hammer();
         }
 
          public Knight(string name, int level, int healthPoints)
@@ -157,10 +137,10 @@ namespace MagicDestroyers.Characters.Melee
             this.Name = name;
             this .Level = level;
             this.HealthPoints = healthPoints;
-            this.AbilityPoints = 120;
-            this.Faction = "Melee";
-            this.BodyArmor = new Chainlink();
-            this.Weapon = new Hammer();
+            this.AbilityPoints = DEFAULT_ABILITY_POINTS;
+            this.Faction = DEFAULT_FACTION;
+            this.BodyArmor = DEFAULT_BODY_ARMOR;
+            this.Weapon = DEFAULT_WEAPON;
         }
 
         public void HollowBlow()

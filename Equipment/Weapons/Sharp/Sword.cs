@@ -4,13 +4,15 @@ namespace MagicDestroyers.Equipment.Weapons.Sharp
 {
     public class Sword
     {
+        private const int DEFAULT_DAMAGE_POINTS = 10;
+
         private int damage;
 
          public int Damage
         {
          get
             {
-                return this.damage;
+                return damage;
             }
             set 
             {
@@ -26,11 +28,15 @@ namespace MagicDestroyers.Equipment.Weapons.Sharp
             }
         }
 
-        public Sword() 
+        public Sword()
+            : this(DEFAULT_DAMAGE_POINTS)
         {
-            this.Damage = 10;
         }
 
+        public Sword(int armorPoints)
+        {
+            this.DamagePoints = armorPoints;
+        }
         public void Bloodthirst()
         {
             throw new NotImplementedException();

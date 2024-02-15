@@ -1,17 +1,27 @@
 using System;
 using MagicDestroyers.Equipment.Armors.Heavy;
 using MagicDestroyers.Equipment.Weapons.Sharp;
+using MagicDestroyers.Enums;
 
 namespace MagicDestroyers.Characters.Melee
 {
     public class Warrior
     {
         //private code is for the fields and cannot be seen outside the class
+        private const string DEFAULT_NAME = "Jack";
+        private const int DEFAULT_LEVEL = 1;
+        private const int DEFAULT_HEALTH_POINTS = 110;
+        private const int DEFAULT_ABILITY_POINTS = 100;
+        private const Faction DEFAULT_FACTION = Faction.Melee;
+
+        private readonly Chainlink DEFAULT_BODY_ARMOR = new Chainlink();
+        private readonly Axe DEFAULT_WEAPON = new Axe();
+
         private int abilityPoints;
         private int healthPoints;
         private int level;
 
-        private string factions;
+        private Faction faction;
         private string name;
 
         private Chainlink bodyArmor;
@@ -71,21 +81,14 @@ namespace MagicDestroyers.Characters.Melee
             }
         }
 
-         public string Factions {
+         public string Faction {
             get {
-                return this.factions;
+                return this.faction;
             }
-            set {
-                if (value === 'Melee' || value === 'Spellcaster') 
+            set 
                 {
                     this.faction = value;
                 }
-                else 
-                {
-                    System.Console.WriteLine("Faction must be Warrior or Spellcaster");
-                    throw new ArgumentOutOfRangeException(string.Empty, "Faction must be Warrior or Spellcaster");
-                }
-            }
         }
 
          public string Name {
@@ -111,15 +114,6 @@ namespace MagicDestroyers.Characters.Melee
             }
             set {
                 this.bodyArmor = value;
-                // if (value >= 1) 
-                // {
-                //     this.bodyArmor = value;
-                // }
-                // else 
-                // {
-                //     System.Console.WriteLine("Body Armour must be one or greater.");
-                //     throw new ArgumentOutOfRangeException(string.Empty, "Body Armour must be one or greater.");
-                // }
             }
         }
 
@@ -129,41 +123,18 @@ namespace MagicDestroyers.Characters.Melee
             }
             set {
                 this.weapon = value;
-                // if (value >= 1) 
-                // {
-                //     weapon = value;
-                // }
-                // else 
-                // {
-                //     System.Console.WriteLine("Weapon must be one or greater.");
-                //      throw new ArgumentOutOfRangeException(string.Empty, "Weapon must be one or greater.");
-                // }
             }
         }
 
 
         public Warrior()
-            : this("Jack", 1)
+            : this(DEFAULT_NAME, DEFAULT_LEVEL)
         {
-            // this.Name = "Jack";
-            // this .Level = 1;
-            // this.HealthPoints = 120;
-            // this.AbilityPoints = 60;
-            // this.Faction = "Melee";
-            // this.BodyArmor = new Chainlink();
-            // this.Weapon = new Axe();
         }
 
         public Warrior(string name, int level)
-            : this(name, level, 120)
+            : this(name, level, DEFAULT_HEALTH_POINTS)
         {
-            // this.Name = name;
-            // this .Level = level;
-            // this.HealthPoints = 120;
-            // this.AbilityPoints = 60;
-            // this.Faction = "Melee";
-            // this.BodyArmor = new Chainlink();
-            // this.Weapon = new Axe();
         }
 
         public Warrior(string name, int level, int healthPoints)
@@ -171,10 +142,10 @@ namespace MagicDestroyers.Characters.Melee
             this.Name = name;
             this .Level = level;
             this.HealthPoints = healthPoints;
-            this.AbilityPoints = 60;
-            this.Faction = "Melee";
-            this.BodyArmor = new Chainlink();
-            this.Weapon = new Axe();
+            this.AbilityPoints = DEFAULT_ABILITY_POINTS;
+            this.Faction = DEFAULT_FACTION;
+            this.BodyArmor = DEFAULT_BODY_ARMOR;
+            this.Weapon = DEFAULT_WEAPON;
         }
 
         public void Strike()

@@ -4,13 +4,15 @@ namespace MagicDestroyers.Equipment.Weapons.Sharp
 {
     public class Axe
     {
+        private const int DEFAULT_DAMAGE_POINTS = 10;
+
         private int damage;
 
          public int Damage
         {
          get
             {
-                return this.damage;
+                return damage;
             }
             set 
             {
@@ -26,9 +28,14 @@ namespace MagicDestroyers.Equipment.Weapons.Sharp
             }
         }
 
-        public Axe() 
+        public Axe()
+            : this(DEFAULT_DAMAGE_POINTS)
         {
+        }
 
+        public Axe(int armorPoints)
+        {
+            this.DamagePoints = armorPoints;
         }
 
         public void HackNSlash()

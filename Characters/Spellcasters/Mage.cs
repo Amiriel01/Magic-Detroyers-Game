@@ -1,16 +1,26 @@
 using System;
 using MagicDestroyers.Equipment.Armors.Light;
 using MagicDestroyers.Equipment.Weapons.Blunt;
+using MagicDestroyers.Enums;
 
 namespace MagicDestroyers.Characters.Spellcaster
 {
     public class Mage
     {
-       private int abilityPoints;
+        private const string DEFAULT_NAME = "Rain";
+        private const int DEFAULT_LEVEL = 1;
+        private const int DEFAULT_HEALTH_POINTS = 70;
+        private const int DEFAULT_ABILITY_POINTS = 130;
+        private const Faction DEFAULT_FACTION = Faction.Spellcaster;
+
+        private readonly ClothRobe DEFAULT_BODY_ARMOR = new ClothRobe();
+        private readonly Staff DEFAULT_WEAPON = new Staff();
+
+        private int abilityPoints;
         private int healthPoints;
         private int level;
 
-        private string factions;
+        private Faction faction;
         private string name;
 
         private ClothRobe bodyArmor;
@@ -67,21 +77,14 @@ namespace MagicDestroyers.Characters.Spellcaster
             }
         }
 
-         public string Factions {
+         public Faction Faction {
             get {
-                return this.factions;
+                return this.faction;
             }
-            set {
-                if (value === 'Melee' || value === 'Spellcaster') 
+            set 
                 {
                     this.faction = value;
                 }
-                else 
-                {
-                    System.Console.WriteLine("Faction must be Warrior or Spellcaster");
-                    throw new ArgumentOutOfRangeException(string.Empty, "Faction must be Warrior or Spellcaster");
-                }
-            }
         }
 
          public string Name {
@@ -107,15 +110,6 @@ namespace MagicDestroyers.Characters.Spellcaster
             }
             set {
                 this.bodyArmor = value;
-                // if (value >= 1) 
-                // {
-                //     bodyArmor = value;
-                // }
-                // else 
-                // {
-                //     System.Console.WriteLine("Body Armour must be one or greater.");
-                //     throw new ArgumentOutOfRangeException(string.Empty, "Body Armour must be one or greater.");
-                // }
             }
         }
 
@@ -125,41 +119,18 @@ namespace MagicDestroyers.Characters.Spellcaster
             }
             set {
                 this.weapon = value;
-                // if (value >= 1) 
-                // {
-                //     weapon = value;
-                // }
-                // else 
-                // {
-                //     System.Console.WriteLine("Weapon must be one or greater.");
-                //      throw new ArgumentOutOfRangeException(string.Empty, "Weapon must be one or greater.");
-                // }
             }
         }
 
 
         public Mage()
-            : this("Rain", 1)
+            : this(DEFAULT_NAME, DEFAULT_LEVEL)
         {
-            // this.Name = "Rain";
-            // this .Level = 1;
-            // this.HealthPoints = 40;
-            // this.AbilityPoints = 60;
-            // this.Faction = "Spellcaster";
-            // this.BodyArmor = new ClothRobe();
-            // this.Weapon = new Staff();
         }
 
          public Mage(string name, int level)
-            : this(name, level, 40)
+            : this(name, level, DEFAULT_HEALTH_POINTS)
         {
-            // this.Name = name;
-            // this .Level = level;
-            // this.HealthPoints = 40;
-            // this.AbilityPoints = 60;
-            // this.Faction = "Spellcaster";
-            // this.BodyArmor = new ClothRobe();
-            // this.Weapon = new Staff();
         }
 
          public Mage(string name, int level, int healthPoints)
@@ -167,10 +138,10 @@ namespace MagicDestroyers.Characters.Spellcaster
             this.Name = name;
             this .Level = level;
             this.HealthPoints = healthPoints;
-            this.AbilityPoints = 60;
-            this.Faction = "Spellcaster";
-            this.BodyArmor = new ClothRobe();
-            this.Weapon = new Staff();
+            this.AbilityPoints = DEFAULT_ABILITY_POINTS;
+            this.Faction = DEFAULT_FACTION;
+            this.BodyArmor = DEFAULT_BODY_ARMOR;
+            this.Weapon = DEFAULT_WEAPON;
         }
 
         public void ArcaneWrath()

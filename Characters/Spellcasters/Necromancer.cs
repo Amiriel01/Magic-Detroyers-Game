@@ -1,16 +1,26 @@
 using System;
 using MagicDestroyers.Equipment.Armors.Leather;
 using MagicDestroyers.Equipment.Weapons.Sharp;
+using MagicDestroyers.Enums;
 
 namespace MagicDestroyers.Characters.Spellcaster
 {
     public class Necromancer
     {
+        private const string DEFAULT_NAME = "Angie";
+        private const int DEFAULT_LEVEL = 1;
+        private const int DEFAULT_HEALTH_POINTS = 60;
+        private const int DEFAULT_ABILITY_POINTS = 150;
+        private const Faction DEFAULT_FACTION = Faction.Spellcaster;
+
+        private readonly LightLeatherVest DEFAULT_BODY_ARMOR = new LightLeatherVest();
+        private readonly Sword DEFAULT_WEAPON = new Sword();
+
         private int abilityPoints;
         private int healthPoints;
         private int level;
 
-        private string factions;
+        private Faction faction;
         private string name;
 
         private LightLeatherVest bodyArmor;
@@ -67,21 +77,14 @@ namespace MagicDestroyers.Characters.Spellcaster
             }
         }
 
-         public string Factions {
+         public Faction Faction {
             get {
-                return this.factions;
+                return this.faction;
             }
-            set {
-                if (value === 'Melee' || value === 'Spellcaster') 
+            set 
                 {
                     this.faction = value;
                 }
-                else 
-                {
-                    System.Console.WriteLine("Faction must be Warrior or Spellcaster");
-                    throw new ArgumentOutOfRangeException(string.Empty, "Faction must be Warrior or Spellcaster");
-                }
-            }
         }
 
          public string Name {
@@ -107,15 +110,6 @@ namespace MagicDestroyers.Characters.Spellcaster
             }
             set {
                 this.bodyArmor = value;
-                // if (value >= 1) 
-                // {
-                //     bodyArmor = value;
-                // }
-                // else 
-                // {
-                //     System.Console.WriteLine("Body Armour must be one or greater.");
-                //     throw new ArgumentOutOfRangeException(string.Empty, "Body Armour must be one or greater.");
-                // }
             }
         }
 
@@ -125,41 +119,18 @@ namespace MagicDestroyers.Characters.Spellcaster
             }
             set {
                 this.weapon = value;
-                // if (value >= 1) 
-                // {
-                //     weapon = value;
-                // }
-                // else 
-                // {
-                //     System.Console.WriteLine("Weapon must be one or greater.");
-                //      throw new ArgumentOutOfRangeException(string.Empty, "Weapon must be one or greater.");
-                // }
             }
         }
 
 
         public Necromancer()
-            : this("Angie", 1)
+            : this(DEFAULT_NAME, DEFAULT_LEVEL)
         {
-            // this.Name = "Angie";
-            // this .Level = 1;
-            // this.HealthPoints = 45;
-            // this.AbilityPoints = 60;
-            // this.Faction = "Spellcaster";
-            // this.BodyArmor = new LightLeatherVest();
-            // this.Weapon = new Sword();
         }
 
         public Necromancer(string name, int level)
-            : this(name, level, 45)
+            : this(name, level, DEFAULT_HEALTH_POINTS)
         {
-            // this.Name = name;
-            // this .Level = level;
-            // this.HealthPoints = 45;
-            // this.AbilityPoints = 60;
-            // this.Faction = "Spellcaster";
-            // this.BodyArmor = new LightLeatherVest();
-            // this.Weapon = new Sword();
         }
 
         public Necromancer(string name, int level, int healthPoints)
@@ -167,10 +138,10 @@ namespace MagicDestroyers.Characters.Spellcaster
             this.Name = name;
             this .Level = level;
             this.HealthPoints = healthPoints;
-            this.AbilityPoints = 60;
-            this.Faction = "Spellcaster";
-            this.BodyArmor = new LightLeatherVest();
-            this.Weapon = new Sword();
+            this.AbilityPoints = DEFAULT_ABILITY_POINTS;
+            this.Faction = DEFAULT_FACTION;
+            this.BodyArmor = DEFAULT_BODY_ARMOR;
+            this.Weapon = DEFAULT_WEAPON;
         }
 
         public void ShadowRage()
