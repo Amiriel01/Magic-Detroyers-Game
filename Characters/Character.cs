@@ -1,9 +1,10 @@
 using MagicDestroyers.Enums;
 using System;
+using MagicDestroyers.Characters.Interfaces;
 
 namespace MagicDestroyers.Characters
 {
-    public class Characters
+    public abstract class Characters : IAttack, IDefend
     {
         private int healthPoints;
         private int level;
@@ -70,5 +71,11 @@ namespace MagicDestroyers.Characters
                 }
             }
         }
+
+        public abstract void Defend();
+
+        public abstract void Attack();
+
+        public abstract void SpecialAttack();
     }
 }
