@@ -5,7 +5,7 @@ using MagicDestroyers.Enums;
 
 namespace MagicDestroyers.Characters.Spellcaster
 {
-    public class Mage
+    public class Mage : Spellcaster
     {
         private const string DEFAULT_NAME = "Rain";
         private const int DEFAULT_LEVEL = 1;
@@ -15,13 +15,6 @@ namespace MagicDestroyers.Characters.Spellcaster
 
         private readonly ClothRobe DEFAULT_BODY_ARMOR = new ClothRobe();
         private readonly Staff DEFAULT_WEAPON = new Staff();
-
-        private int abilityPoints;
-        private int healthPoints;
-        private int level;
-
-        private Faction faction;
-        private string name;
 
         private ClothRobe bodyArmor;
         private Staff weapon;

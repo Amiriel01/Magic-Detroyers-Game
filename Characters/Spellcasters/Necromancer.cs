@@ -5,7 +5,7 @@ using MagicDestroyers.Enums;
 
 namespace MagicDestroyers.Characters.Spellcaster
 {
-    public class Necromancer
+    public class Necromancer : Spellcaster
     {
         private const string DEFAULT_NAME = "Angie";
         private const int DEFAULT_LEVEL = 1;
@@ -15,13 +15,6 @@ namespace MagicDestroyers.Characters.Spellcaster
 
         private readonly LightLeatherVest DEFAULT_BODY_ARMOR = new LightLeatherVest();
         private readonly Sword DEFAULT_WEAPON = new Sword();
-
-        private int abilityPoints;
-        private int healthPoints;
-        private int level;
-
-        private Faction faction;
-        private string name;
 
         private LightLeatherVest bodyArmor;
         private Sword weapon;

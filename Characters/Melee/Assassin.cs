@@ -5,7 +5,7 @@ using MagicDestroyers.Enums;
 
 namespace MagicDestroyers.Characters.Melee
 {
-    public class Assassin
+    public class Assassin : Melee
     {
         private const string DEFAULT_NAME = "Sam";
         private const int DEFAULT_LEVEL = 1;
@@ -16,94 +16,8 @@ namespace MagicDestroyers.Characters.Melee
         private readonly LightLeatherVest DEFAULT_BODY_ARMOR = new LightLeatherVest();
         private readonly Sword DEFAULT_WEAPON = new Sword();
 
-        private int abilityPoints;
-        private int healthPoints;
-        private int level;
-
-        private Faction faction;
-        private string name;
-
         private LightLeatherVest bodyArmor;
         private Sword weapon;
-
-        public int AbilityPoints {
-            get {
-                return this.abilityPoints;
-            }
-            set {
-                if (value >= 1 && value <= 50) 
-                {
-                    this.abilityPoints = value;
-                }
-                else 
-                {
-                    System.Console.WriteLine("Ability Points must be between 1 and 50.");
-                    throw new ArgumentOutOfRangeException(string.Empty, "Ability Points must be between 1 and 50.");
-                }
-            }
-        }
-
-         public int HealthPoints {
-            get {
-                return this.healthPoints;
-            }
-            set {
-                if (value >= 1 && value <= 100) 
-                {
-                    this.healthPoints = value;
-                }
-                else 
-                {
-                    System.Console.WriteLine("Health points must be between 1 and 100.");
-                    throw new ArgumentOutOfRangeException(string.Empty, "Health points must be between 1 and 100.");
-                }
-            }
-        }
-
-         public int Level {
-            get {
-                return this.level;
-            }
-            set {
-                if (value >= 1) 
-                {
-                    this.level = value;
-                }
-                else 
-                {
-                    System.Console.WriteLine("Level must be one or greater.");
-                    throw new ArgumentOutOfRangeException(string.Empty, "Level must be one or greater.");
-                }
-            }
-        }
-
-         public Faction Faction {
-            get {
-                return this.faction;
-            }
-            set 
-                {
-                    this.faction = value;
-                }
-         }
-
-
-         public string Name {
-            get {
-                return this.name;
-            }
-            set {
-                if (value >= 3 && value <= 15) 
-                {
-                    this.name = value;
-                }
-                else 
-                {
-                    System.Console.WriteLine("Name must be 3-15 characters.");
-                    throw new ArgumentOutOfRangeException(string.Empty, "Name must be 3-15 characters.");
-                }
-            }
-        }
 
          public LightLeatherVest BodyArmor {
             get {

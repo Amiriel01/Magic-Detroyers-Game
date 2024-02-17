@@ -5,7 +5,7 @@ using MagicDestroyers.Enums;
 
 namespace MagicDestroyers.Characters.Spellcaster
 {
-    public class Druid
+    public class Druid : Spellcaster
     {
         private const string DEFAULT_NAME = "Oak";
         private const int DEFAULT_LEVEL = 1;
@@ -15,13 +15,6 @@ namespace MagicDestroyers.Characters.Spellcaster
 
         private readonly LightLeatherVest DEFAULT_BODY_ARMOR = new LightLeatherVest();
         private readonly Staff DEFAULT_WEAPON = new Staff();
-
-        private int abilityPoints;
-        private int healthPoints;
-        private int level;
-
-        private Faction faction;
-        private string name;
 
         private LightLeatherVest bodyArmor;
         private Staff weapon;
