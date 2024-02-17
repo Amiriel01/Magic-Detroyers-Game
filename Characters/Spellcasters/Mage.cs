@@ -16,28 +16,6 @@ namespace MagicDestroyers.Characters.Spellcaster
         private readonly ClothRobe DEFAULT_BODY_ARMOR = new ClothRobe();
         private readonly Staff DEFAULT_WEAPON = new Staff();
 
-        private ClothRobe bodyArmor;
-        private Staff weapon;
-
-         public ClothRobe BodyArmor {
-            get {
-                return this.bodyArmor;
-            }
-            set {
-                this.bodyArmor = value;
-            }
-        }
-
-        public Staff Weapon {
-            get {
-                return this.weapon;
-            }
-            set {
-                this.weapon = value;
-            }
-        }
-
-
         public Mage()
             : this(DEFAULT_NAME, DEFAULT_LEVEL)
         {
@@ -50,13 +28,13 @@ namespace MagicDestroyers.Characters.Spellcaster
 
          public Mage(string name, int level, int healthPoints)
         {
-            this.Name = name;
-            this .Level = level;
-            this.HealthPoints = healthPoints;
-            this.AbilityPoints = DEFAULT_ABILITY_POINTS;
-            this.Faction = DEFAULT_FACTION;
-            this.BodyArmor = DEFAULT_BODY_ARMOR;
-            this.Weapon = DEFAULT_WEAPON;
+            base.Name = name;
+            base .Level = level;
+            base.HealthPoints = healthPoints;
+            base.AbilityPoints = DEFAULT_ABILITY_POINTS;
+            base.Faction = DEFAULT_FACTION;
+            base.BodyArmor = DEFAULT_BODY_ARMOR;
+            base.Weapon = DEFAULT_WEAPON;
         }
 
         public void ArcaneWrath()
@@ -76,17 +54,17 @@ namespace MagicDestroyers.Characters.Spellcaster
 
         public override void Attack()
         {
-            throw new NotImplementedException();
+            this.ArcaneWrath();
         }
 
         public override void SpecialAttack()
         {
-            throw new NotImplementedException();
+            this.Firewall();
         }
 
         public override void Defend()
         {
-            throw new NotImplementedException();
+            this.Meditation();
         }
     }
 }

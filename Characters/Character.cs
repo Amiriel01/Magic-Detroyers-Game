@@ -11,6 +11,28 @@ namespace MagicDestroyers.Characters
         private Faction faction;
         private string name;
 
+        private Armor bodyArmor;
+        private Weapon weapon;
+
+         public Armor BodyArmor {
+            get {
+                return this.bodyArmor;
+            }
+            set {
+                this.bodyArmor = value;
+            }
+        }
+
+        public Weapon Weapon {
+            get {
+                return weapon;
+            }
+            set {
+                this.weapon = value;
+            }
+        }
+
+
         public int HealthPoints {
             get {
                 return this.healthPoints;
