@@ -145,11 +145,11 @@ namespace MagicDestroyers.Characters
 
             if (!this.isAlive)
             {
-                Console.WriteLine($"{this.name} recieved {damage} damage from {attackerName} and is now dead.")
+                Tools.TypeSpecificColorfulCW($"{this.name} received {damage} damage from {attackerName}, and is now dead!", type);
             }
             else
             {
-                Console.WriteLine($"{this.name} recieved {damage} damage from {attackerName} and now has {this.healthPoints} health points left.")
+                Tools.TypeSpecificColorfulCW($"{this.name} received {damage} damage from {attackerName}, and now has {this.healthPoints} healthpoints!", type);
             }
         }
     }
