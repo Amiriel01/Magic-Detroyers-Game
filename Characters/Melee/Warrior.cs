@@ -8,23 +8,16 @@ namespace MagicDestroyers.Characters.Melee
 {
     public class Warrior : Melee
     {
-        //private code is for the fields and cannot be seen outside the class
-        private const string DEFAULT_NAME = "Jack";
-        private const int DEFAULT_LEVEL = 1;
-        private const int DEFAULT_HEALTH_POINTS = 110;
-        private const int DEFAULT_ABILITY_POINTS = 100;
-        private const Faction DEFAULT_FACTION = Faction.Melee;
-
         private readonly Chainlink DEFAULT_BODY_ARMOR = new Chainlink();
         private readonly Axe DEFAULT_WEAPON = new Axe();   
 
         public Warrior()
-            : this(DEFAULT_NAME, DEFAULT_LEVEL)
+            : this(Consts.Warrior.NAME, 1)
         {
         }
 
         public Warrior(string name, int level)
-            : this(name, level, DEFAULT_HEALTH_POINTS)
+            : this(name, level, Consts.Warrior.HEALTH_POINTS)
         {
         }
 
@@ -33,8 +26,8 @@ namespace MagicDestroyers.Characters.Melee
             base.Name = name;
             base .Level = level;
             base.HealthPoints = healthPoints;
-            base.AbilityPoints = DEFAULT_ABILITY_POINTS;
-            base.Faction = DEFAULT_FACTION;
+            base.AbilityPoints = Const.Warrior.ABILITY_POINTS;
+            base.Faction = Faction.Melee;
             base.BodyArmor = DEFAULT_BODY_ARMOR;
             base.Weapon = DEFAULT_WEAPON;
             base.IsAlive = true;

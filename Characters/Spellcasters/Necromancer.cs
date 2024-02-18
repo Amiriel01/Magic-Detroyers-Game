@@ -7,22 +7,16 @@ namespace MagicDestroyers.Characters.Spellcaster
 {
     public class Necromancer : Spellcaster
     {
-        private const string DEFAULT_NAME = "Angie";
-        private const int DEFAULT_LEVEL = 1;
-        private const int DEFAULT_HEALTH_POINTS = 60;
-        private const int DEFAULT_ABILITY_POINTS = 150;
-        private const Faction DEFAULT_FACTION = Faction.Spellcaster;
-
         private readonly LightLeatherVest DEFAULT_BODY_ARMOR = new LightLeatherVest();
         private readonly Sword DEFAULT_WEAPON = new Sword();
 
         public Necromancer()
-            : this(DEFAULT_NAME, DEFAULT_LEVEL)
+            : this(Consts.Necromancer.NAME, 1)
         {
         }
 
         public Necromancer(string name, int level)
-            : this(name, level, DEFAULT_HEALTH_POINTS)
+            : this(name, level, Consts.Necromancer.HEALTH_POINTS)
         {
         }
 
@@ -31,8 +25,8 @@ namespace MagicDestroyers.Characters.Spellcaster
             base.Name = name;
             base .Level = level;
             base.HealthPoints = healthPoints;
-            base.AbilityPoints = DEFAULT_ABILITY_POINTS;
-            base.Faction = DEFAULT_FACTION;
+            base.AbilityPoints = Consts.Necromancer.ABILITY_POINTS;
+            base.Faction = Faction.Spellcaster;
             base.BodyArmor = DEFAULT_BODY_ARMOR;
             base.Weapon = DEFAULT_WEAPON;
             base.IsAlive = true;

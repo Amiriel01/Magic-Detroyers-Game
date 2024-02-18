@@ -7,23 +7,17 @@ namespace MagicDestroyers.Characters.Melee
 {
     public class Assassin : Melee
     {
-        private const string DEFAULT_NAME = "Sam";
-        private const int DEFAULT_LEVEL = 1;
-        private const int DEFAULT_HEALTH_POINTS = 120;
-        private const int DEFAULT_ABILITY_POINTS = 90;
-        private const Faction DEFAULT_FACTION = Faction.Melee;
-
         private readonly LightLeatherVest DEFAULT_BODY_ARMOR = new LightLeatherVest();
         private readonly Sword DEFAULT_WEAPON = new Sword();
 
  //chaining constructors lets the user write less code but still offerts variation in the constructor.
         public Assassin()
-            : this(DEFAULT_NAME, DEFAULT_LEVEL)
+            : this(Consts.Assassin.NAME, 1)
         {
         }
 
          public Assassin(string name, int level)
-            : this(name, level, DEFAULT_HEALTH_POINTS)
+            : this(name, level, Consts.Assassin.HEALTH_POINTS)
         {
         }
 
@@ -32,8 +26,8 @@ namespace MagicDestroyers.Characters.Melee
             base.Name = name;
             base .Level = level;
             base.HealthPoints = healthPoints;
-            base.AbilityPoints = DEFAULT_ABILITY_POINTS;
-            base.Faction = DEFAULT_FACTION;
+            base.AbilityPoints = Consts.Assassin.ABILITY_POINTS;
+            base.Faction = Faction.Melee;
             base.BodyArmor = DEFAULT_BODY_ARMOR;
             base.Weapon = DEFAULT_WEAPON;
             base.IsAlive = true;

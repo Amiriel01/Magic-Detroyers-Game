@@ -7,22 +7,16 @@ namespace MagicDestroyers.Characters.Spellcaster
 {
     public class Mage : Spellcaster
     {
-        private const string DEFAULT_NAME = "Rain";
-        private const int DEFAULT_LEVEL = 1;
-        private const int DEFAULT_HEALTH_POINTS = 70;
-        private const int DEFAULT_ABILITY_POINTS = 130;
-        private const Faction DEFAULT_FACTION = Faction.Spellcaster;
-
         private readonly ClothRobe DEFAULT_BODY_ARMOR = new ClothRobe();
         private readonly Staff DEFAULT_WEAPON = new Staff();
 
         public Mage()
-            : this(DEFAULT_NAME, DEFAULT_LEVEL)
+            : this(Consts.Mage.NAME, 1)
         {
         }
 
          public Mage(string name, int level)
-            : this(name, level, DEFAULT_HEALTH_POINTS)
+            : this(name, level, Consts.Mage.HEALTH_POINTS)
         {
         }
 
@@ -31,8 +25,8 @@ namespace MagicDestroyers.Characters.Spellcaster
             base.Name = name;
             base .Level = level;
             base.HealthPoints = healthPoints;
-            base.AbilityPoints = DEFAULT_ABILITY_POINTS;
-            base.Faction = DEFAULT_FACTION;
+            base.AbilityPoints = Consts.MageABILITY_POINTS;
+            base.Faction = Faction.Spellcaster;
             base.BodyArmor = DEFAULT_BODY_ARMOR;
             base.Weapon = DEFAULT_WEAPON;
             base.IsAlive = true;
