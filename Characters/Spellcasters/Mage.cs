@@ -35,36 +35,38 @@ namespace MagicDestroyers.Characters.Spellcaster
             base.Faction = DEFAULT_FACTION;
             base.BodyArmor = DEFAULT_BODY_ARMOR;
             base.Weapon = DEFAULT_WEAPON;
+            base.IsAlive = true;
+            base.Scores = 0;
         }
 
-        public void ArcaneWrath()
+        public int ArcaneWrath()
+        {
+            return base.Weapon.DamagePoints + 11;
+        }
+
+        public int Firewall()
         {
             throw new NotImplementedException();
         }
 
-        public void Firewall()
+        public int Meditation()
         {
-            throw new NotImplementedException();
-        }
-
-        public void Meditation()
-        {
-            throw new NotImplementedException();
+            return base.BodyArmor.ArmorPoints +6;
         } 
 
-        public override void Attack()
+        public override int Attack()
         {
-            this.ArcaneWrath();
+            return this.ArcaneWrath();
         }
 
-        public override void SpecialAttack()
+        public override int SpecialAttack()
         {
-            this.Firewall();
+            return this.Firewall();
         }
 
-        public override void Defend()
+        public override int Defend()
         {
-            this.Meditation();
+            return this.Meditation();
         }
     }
 }

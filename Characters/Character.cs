@@ -8,11 +8,38 @@ namespace MagicDestroyers.Characters
     {
         private int healthPoints;
         private int level;
+        private int scores;
         private Faction faction;
         private string name;
 
+        private bool isAlive;
+
         private Armor bodyArmor;
         private Weapon weapon;
+
+        public int scores 
+        {
+            get
+            {
+                return this.scores;
+            }
+            private set 
+            {
+                this.scores = value;
+            }
+        }
+
+        public bool isAlive
+        {
+            get
+            {
+                return this.isAlive;
+            }
+            private set
+            {
+                this.isAlive = value;
+            }
+        }
 
          public Armor BodyArmor {
             get {
@@ -94,10 +121,36 @@ namespace MagicDestroyers.Characters
             }
         }
 
-        public abstract void Defend();
+        public abstract int Defend();
 
-        public abstract void Attack();
+        public abstract int Attack();
 
-        public abstract void SpecialAttack();
+        public abstract int SpecialAttack();
+
+        public void TakeDamage(int damage, string attackerName)
+        {
+            if (this.Defend() < damage)
+            {
+                this.healthPoints = this.healthPoints - damage + this.Defend;
+
+                if (this.healthPoints <= 0)
+                {
+                    this.isAlive = false;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Damage was not hire enough to harm player.")
+            }
+
+            if (!this.isAlive)
+            {
+                Console.WriteLine($"{this.name} recieved {damage} damage from {attackerName} and is now dead.")
+            }
+            else
+            {
+                Console.WriteLine($"{this.name} recieved {damage} damage from {attackerName} and now has {this.healthPoints} health points left.")
+            }
+        }
     }
 }

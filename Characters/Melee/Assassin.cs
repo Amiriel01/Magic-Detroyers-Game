@@ -15,7 +15,7 @@ namespace MagicDestroyers.Characters.Melee
 
         private readonly LightLeatherVest DEFAULT_BODY_ARMOR = new LightLeatherVest();
         private readonly Sword DEFAULT_WEAPON = new Sword();
-        
+
  //chaining constructors lets the user write less code but still offerts variation in the constructor.
         public Assassin()
             : this(DEFAULT_NAME, DEFAULT_LEVEL)
@@ -36,36 +36,38 @@ namespace MagicDestroyers.Characters.Melee
             base.Faction = DEFAULT_FACTION;
             base.BodyArmor = DEFAULT_BODY_ARMOR;
             base.Weapon = DEFAULT_WEAPON;
+            base.IsAlive = true;
+            base.Scores = 0;
         }
 
-        public void Raze()
+        public int Raze()
+        {
+            return base.Weapon.DamagePoints + 8;
+        }
+
+        public int BleedToDeath()
         {
             throw new NotImplementedException();
         }
 
-        public void BleedToDeath()
+        public int Survival()
         {
-            throw new NotImplementedException();
+            return base.BodyArmor.ArmorPoints +6;
         }
 
-        public void Survival()
+        public override int Attack()
         {
-            throw new NotImplementedException();
+            return this.Raze();
         }
 
-        public override void Attack()
+        public override int SpecialAttack()
         {
-            this.Raze();
+            return this.BleedToDeath();
         }
 
-        public override void SpecialAttack()
+        public override int Defend()
         {
-            this.BleedToDeath();
-        }
-
-        public override void Defend()
-        {
-            this.Survival();
+            return this.Survival();
         }
     }
 }

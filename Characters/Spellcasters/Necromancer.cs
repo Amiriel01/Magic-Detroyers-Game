@@ -35,36 +35,38 @@ namespace MagicDestroyers.Characters.Spellcaster
             base.Faction = DEFAULT_FACTION;
             base.BodyArmor = DEFAULT_BODY_ARMOR;
             base.Weapon = DEFAULT_WEAPON;
+            base.IsAlive = true;
+            base.Scores = 0;
         }
 
-        public void ShadowRage()
+        public int ShadowRage()
+        {
+            return base.Weapon.DamagePoints + 9;
+        }
+
+        public int VampireTouch()
         {
             throw new NotImplementedException();
         }
 
-        public void VampireTouch()
+        public int BoneShield()
         {
-            throw new NotImplementedException();
-        }
-
-        public void BoneShield()
-        {
-            throw new NotImplementedException();
+            return base.BodyArmor.ArmorPoints +9;
         } 
 
-        public override void Attack()
+        public override int Attack()
         {
-            this.ShadowRage();
+            return this.ShadowRage();
         }
 
-        public override void SpecialAttack()
+        public override int SpecialAttack()
         {
-            this.VampireTouch();
+            return this.VampireTouch();
         }
 
-        public override void Defend()
+        public override int Defend()
         {
-            this.BoneShield();
+            return this.BoneShield();
         }
     }
 }

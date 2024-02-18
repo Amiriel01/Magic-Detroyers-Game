@@ -35,36 +35,38 @@ namespace MagicDestroyers.Characters.Melee
             base.Faction = DEFAULT_FACTION;
             base.BodyArmor = DEFAULT_BODY_ARMOR;
             base.Weapon = DEFAULT_WEAPON;
+            base.IsAlive = true;
+            base.Scores = 0;
         }
 
-        public void HollowBlow()
+        public int HollowBlow()
+        {
+            return base.Weapon.DamagePoints + 12;
+        }
+
+        public int PurifySoul()
         {
             throw new NotImplementedException();
         }
 
-        public void PurifySoul()
+        public int RightousWings()
         {
-            throw new NotImplementedException();
+            return base.BodyArmor.ArmorPoints +4;
         }
 
-        public void RightousWings()
+        public override int Attack()
         {
-            throw new NotImplementedException();
+            return this.HollowBlow();
         }
 
-        public override void Attack()
+        public override int SpecialAttack()
         {
-            this.HollowBlow();
+            return this.PurifySoul();
         }
 
-        public override void SpecialAttack()
+        public override int Defend()
         {
-            this.PurifySoul();
-        }
-
-        public override void Defend()
-        {
-            this.RightousWings();
+            return this.RightousWings();
         }
     }
 }

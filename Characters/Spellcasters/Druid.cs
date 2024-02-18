@@ -35,36 +35,38 @@ namespace MagicDestroyers.Characters.Spellcaster
             base.Faction = DEFAULT_FACTION;
             base.BodyArmor = DEFAULT_BODY_ARMOR;
             base.Weapon = DEFAULT_WEAPON;
+            base.IsAlive = true;
+            base.Scores = 0;
         }
 
-        public void Moonfire()
+        public int Moonfire()
+        {
+            return base.Weapon.DamagePoints + 10;
+        }
+
+        public int Starburst()
         {
             throw new NotImplementedException();
         }
 
-        public void Starburst()
+        public int OneWithTheNature()
         {
-            throw new NotImplementedException();
+            return base.BodyArmor.ArmorPoints +7;
         }
 
-        public void OneWithTheNature()
+        public override int Attack()
         {
-            throw new NotImplementedException();
+            return this.Moonfire();
         }
 
-        public override void Attack()
+        public override int SpecialAttack()
         {
-            this.Moonfire();
+            return this.Starburst();
         }
 
-        public override void SpecialAttack()
+        public override int Defend()
         {
-            this.Starburst();
-        }
-
-        public override void Defend()
-        {
-            this.Defend();
+            return this.Defend();
         }
     }
 }
