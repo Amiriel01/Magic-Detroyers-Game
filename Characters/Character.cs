@@ -42,7 +42,8 @@ namespace MagicDestroyers.Characters
         }
 
          public Armor BodyArmor {
-            get {
+            get 
+            {
                 return this.bodyArmor;
             }
             set {
